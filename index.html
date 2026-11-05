@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyHub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Auth screen -->
+  <main id="authScreen" class="card">
+    <h1>StudyHub</h1>
+    <p class="subtitle">Your personal school task tracker</p>
+
+    <form id="authForm">
+      <label>
+        Email
+        <input type="email" id="email" required autocomplete="email" />
+      </label>
+
+      <label>
+        Password
+        <input type="password" id="password" required minlength="6" autocomplete="current-password" />
+      </label>
+
+      <div class="button-row">
+        <button type="submit" id="loginButton">Log in</button>
+        <button type="button" id="signupButton">Sign up</button>
+      </div>
+    </form>
+
+    <p id="authMessage" class="message"></p>
+  </main>
+
+  <!-- App screen -->
+  <main id="appScreen" class="hidden">
+    <header class="topbar">
+      <h1>StudyHub</h1>
+      <button id="logoutButton">Log out</button>
+    </header>
+
+    <section class="card">
+      <h2>Add a task</h2>
+
+      <form id="taskForm">
+        <label>
+          Task
+          <input type="text" id="taskTitle" placeholder="Finish maths worksheet" required />
+        </label>
+
+        <label>
+          Subject
+          <input type="text" id="taskSubject" placeholder="Maths" />
+        </label>
+
+        <label>
+          Due date
+          <input type="date" id="taskDueDate" />
+        </label>
+
+        <button type="submit">Add task</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="list-header">
+        <h2>Your tasks</h2>
+        <button id="refreshButton">Refresh</button>
+      </div>
+
+      <ul id="taskList"></ul>
+      <p id="emptyMessage" class="empty hidden">No tasks yet. Add your first one above.</p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
